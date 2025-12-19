@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <title>막걸리</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+        *{padding:0; margin:0; box-sizing: border-box; font-family:"Fira Sans", sans-serif;}
+        a{text-decoration: none; color:#fff;}
+        body {width:100%; height:100%;}
+        .container-fluid{margin:0; padding:0;}
+        header img{object-fit: cover; width:100%; height:auto;}
+        nav{width:100%;}
+        nav ul{width:60%;}
+        nav form{width: 40%;}
+        nav form button{width:100px;}
+        .row{padding:10px; margin:0;}
+        .row p{text-align: center; font-size: 1.3em; padding-top:15px;}
+        .row img{width:100%; text-align: center; height:300px; border-radius: 10px;}
+        .highlight {
+            border: 4px solid #ffc107;
+            border-radius: 10px;
+            transition: border 0.1s ease;
+        }
+        footer a{background-color: coral; font-size: 1.2em; width: 100%; height: 213px; display: flex; justify-content: center; align-items: center;}
+    </style>
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const navLinks = document.querySelectorAll("nav a.nav-link");
+        const targets = document.querySelectorAll("main .col-3");
+
+        navLinks.forEach(link => {
+            link.addEventListener("click", function (e) {
+                e.preventDefault(); // 기본 앵커 이동 방지
+
+                // 모든 대상에서 highlight 제거
+                targets.forEach(target => target.classList.remove("highlight"));
+
+                // 클릭한 a의 href에서 id 추출
+                const targetId = this.getAttribute("href").substring(1);
+                const targetElement = document.getElementById(targetId);
+
+                if (targetElement) {
+                    targetElement.classList.add("highlight");
+
+                    // 부드러운 스크롤 이동
+                    targetElement.scrollIntoView({
+                        behavior: "smooth",
+                        block: "center"
+                    });
+                }
+            });
+        });
+    });
+    </script>
+</head>
+<body>
+    <div class="container-fluid text-bg-success">
+        <header>
+            <img src="../testkct/visual.gif" alt="mainimg">
+        </header>
+        <nav class="navbar navbar-expand-sm bg-danger navbar-dark p-3">
+            <div class="collapse navbar-collapse" id="mynavbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#jss">장수 생막걸리</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#js">장수 막걸리</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#wm">월매 막걸리</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#gs">홍삼 막걸리</a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="text" placeholder="검색">
+                    <button class="btn btn-primary" type="button">검색</button>
+                </form>
+            </div>
+        </nav>
+        <main>
+            <div class="row">
+                <div class="col-3" id="jss">
+                    <a href="http://www.koreawine.co.kr/2011/c1/page2.php">
+                        <p>장수 생막걸리</p>
+                        <img src="../testkct/kc-row1/page1_1_img2.jpg" alt="장수 생막걸리"> 
+                    </a>                   
+                </div>
+                <div class="col-3" id="js">
+                    <a href="http://www.koreawine.co.kr/2011/c1/page1.php">
+                        <p>장수 막걸리</p>
+                        <img src="../testkct/kc-row1/page1_img2.jpg" alt="장수 막걸리">  
+                    </a>                   
+                </div>
+                <div class="col-3" id="wm">
+                    <a href="http://www.koreawine.co.kr/2011/c1/page4.php">
+                        <p>월매 막걸리</p>
+                        <img src="../testkct/kc-row1/page3_img2.jpg" alt="월매 막걸리"> 
+                    </a>                   
+                </div>
+                <div class="col-3" id="gs">
+                    <a href="http://www.koreawine.co.kr/2011/c1/page7.php">
+                       <p>홍삼 막걸리</p>
+                        <img src="../testkct/kc-row1/page3_img2_3.jpg" alt="홍삼 막걸리"> 
+                    </a>                    
+                </div>
+            </div>
+        </main>
+        <footer>
+            <a href="http://www.koreawine.co.kr/2011/index.php">장수막걸리</a>
+        </footer>
+    </div>
+</body>
+</html>
